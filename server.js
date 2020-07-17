@@ -1,4 +1,5 @@
 const express = require('express');
+const ip = require('ip');
 const app = express();
 const port = 8080;
 
@@ -24,6 +25,8 @@ app.get('/channel/:id', (req, res) => {
 
 
 app.listen( port, () =>{
-    console.log(`listening on port ${port}.....`);
+    console.log(`Now you can send requests on...\n\n \t 
+        %cLocal: \t\t http://localhost:${port}
+        %cOn Your Network: http://${ip.address()}:8080`, 'font-weight:bold', 'font-weight:bold');
 }
 )
